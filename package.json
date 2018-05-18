@@ -1,59 +1,26 @@
 {
-  "name": "fuzzco-nanobox-wordpress",
-  "version": "1.0.0",
-  "description": "Nanobox Wordpress Starter",
-  "main": "index.js",
+  "name": "TODO",
+  "description": "TODO",
+  "version": "0.0.1",
   "scripts": {
-    "init": "./scripts/init.sh",
-    "build": "rollup -c --environment dev",
-    "dev": "parallelshell 'npm run watch' 'npm run js' 'npm run serve' 'npm run css'",
-    "serve": "nanobox run php-server",
-    "js": "rollup -c -w",
-    "js:min": "rollup -c --environment production",
-    "precss": "node-sass ./theme/scss/style.scss theme/style.css",
-    "css": "node-sass ./theme/scss/style.scss theme/style.css --watch",
-    "css:min": "postcss ./theme/style.css -u autoprefixer cssnano -o ./theme/style.css",
-    "img": "imagemin-newer theme/img/ theme/img/",
-    "watch": "rerun-script",
-    "sync:plugins": "rsync -va --delete ./plugins/ ./wp/wp-content/plugins/",
-    "sync:theme": "rsync -va --delete ./theme/ ./wp/wp-content/themes/fuzzco",
-    "stage": "echo stage plz",
-    "prestart": "./scripts/prestart.sh",
-    "start": "npm run dev"
+    "dev": "sapper dev",
+    "build": "sapper build",
+    "export": "sapper export",
+    "start": "node build",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open",
+    "test": "run-p --race dev cy:run"
   },
-  "watches": {
-    "sync:plugins": "plugins/**/*.*",
-    "sync:theme": "theme/**/*.*"
+  "dependencies": {
+    "compression": "^1.7.1",
+    "polka": "^0.3.4",
+    "sapper": "^0.12.0",
+    "serve-static": "^1.13.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@bitbucket.oef:nikolaswise/toba.git"
-  },
-  "keywords": [
-    "Toba"
-  ],
-  "author": "Fuzzco",
-  "license": "SEE LICENSE IN LICENSE.md",
   "devDependencies": {
-    "autoprefixer": "^8.0.0",
-    "clean-css": "^4.1.9",
-    "color": "^3.0.0",
-    "cssnano": "^3.10.0",
-    "degit": "^2.0.2",
-    "imagemin-newer": "^1.0.2",
-    "node-sass": "^4.7.2",
-    "parallelshell": "^3.0.2",
-    "postcss-cli": "^5.0.0",
-    "postcss-import": "^11.1.0",
-    "prompt": "^1.0.0",
-    "rerun-script": "^0.6.0",
-    "rollup": "^0.56.2",
-    "rollup-plugin-buble": "^0.19.2",
-    "rollup-plugin-commonjs": "^8.3.0",
-    "rollup-plugin-node-resolve": "^3.0.3",
-    "rollup-plugin-svelte": "^4.0.0",
-    "rollup-plugin-uglify": "^3.0.0",
-    "rollup-watch": "^4.3.1",
-    "svelte": "^1.55.0"
+    "npm-run-all": "^4.1.2",
+    "svelte": "^2.0.0",
+    "svelte-loader": "^2.9.0",
+    "webpack": "^4.7.0"
   }
 }

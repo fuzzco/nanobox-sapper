@@ -1,6 +1,10 @@
-wp/
-node_modules/
-theme/bundle.js
-theme/bundle.min.js
-theme/style.css
-theme/style.min.css
+.DS_Store
+node_modules
+/.sapper/
+yarn.lock
+yarn-error.log
+/cypress/screenshots/
+/templates/.*
+/export/
+/build/
+/app/manifest/
