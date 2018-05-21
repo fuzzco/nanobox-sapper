@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const config = require('sapper/webpack/config.js');
+const sass = require('node-sass');
 
 const mode = process.env.NODE_ENV;
 const isDev = mode === 'development';
@@ -19,7 +20,30 @@ module.exports = {
 					loader: 'svelte-loader',
 					options: {
 						hydratable: true,
-						hotReload: true
+						hotReload: true,
+						style: ({ content, attributes }) => {
+              if (attributes.type !== "text/scss") return;
+              return new Promise((fulfil, reject) => {
+                sass.render(
+                  {
+                    data: content,
+                    includePaths: ['routes'],
+                    sourceMap: true,
+                    importer: function(url, prev) {
+                      return { file: url };
+                    },
+                    outFile: "x" // this is necessary, but is ignored
+	                },
+	                (err, result) => {
+                    if (err) return reject(err);
+                    fulfil({
+                      code: result.css.toString(),
+                      map: result.map
+                    });
+                  }
+                );
+              });
+            }
 					}
 				}
 			}

@@ -3,9 +3,9 @@
 The default [Sapper](https://github.com/sveltejs/sapper) template. To clone it and get started:
 
 ```bash
-npx degit sveltejs/sapper-template my-app
+npx degit fuzzco/nanobox-sapper my-app
 cd my-app
-npm install # or yarn!
+npm install
 npm run dev
 ```
 
@@ -37,6 +37,10 @@ import { assets } from './manifest/service-worker.js';
 ...so that you can cache them (though you can choose not to, for example if you don't want to cache very large files).
 
 
+### components
+
+This breaks individual components out of the routes dir.
+
 ### routes
 
 This is the heart of your Sapper app. There are two kinds of routes — *pages*, and *server routes*.
@@ -59,15 +63,14 @@ Sapper uses webpack to provide code-splitting, dynamic imports and hot module re
 
 ## Production mode and deployment
 
-To start a production version of your app, run `npm run build && npm start`. This will disable hot module replacement, and activate the appropriate webpack plugins.
+This project deploys to a Nanobox app backed by Digital Ocean. Spin up the app from the Nanobox dashboard and deploy the sapper app to it with:
 
-You can deploy your application to any environment that supports Node 8 or above. As an example, to deploy to [Now](https://zeit.co/now), run these commands:
 
-```bash
-npm install -g now
-now
+```
+$ nanobox deploy your-nanobox-instance
 ```
 
+This will spin up a container that serves the Sapper app with an NGINX reverse proxy to port :3000, run the production Sapper build, and start the production sapper server.
 
 ## Using external components
 

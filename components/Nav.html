@@ -1,43 +1,31 @@
 <nav>
-	<ul>
-		<li><a class='{page === "home"  ? "selected" : ""}' href='.'>home</a></li>
-		<li><a class='{page === "about"  ? "selected" : ""}' href='about'>about</a></li>
+		<a class='{page === "home"  ? "selected" : ""}' href='.'>home</a>
+		<a class='{page === "about"  ? "selected" : ""}' href='about'>about</a>
 
 		<!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
 		     the blog data when we hover over the link or tap it on a touchscreen -->
-		<li><a rel=prefetch class='{page === "blog"  ? "selected" : ""}' href='blog'>blog</a></li>
-	</ul>
+		<a rel=prefetch class='{page === "blog"  ? "selected" : ""}' href='blog'>blog</a>
+
 </nav>
 
 <style>
 	nav {
-		border-bottom: 1px solid rgba(170,30,30,0.1);
-		font-weight: 300;
-		padding: 0 1em;
+		position: relative;
+		max-width: 56em;
+		background-color: white;
+		padding: 2em;
+		margin: 0 auto;
+		box-sizing: border-box;
 	}
-
-	ul {
-		margin: 0;
-		padding: 0;
+	a {
+		text-decoration: none;
+		display: inline-block;
+		margin-right: 0.33em;
 	}
-
-	/* clearfix */
-	ul::after {
-		content: '';
-		display: block;
-		clear: both;
-	}
-
-	li {
-		display: block;
-		float: left;
-	}
-
 	.selected {
 		position: relative;
 		display: inline-block;
 	}
-
 	.selected::after {
 		position: absolute;
 		content: '';
@@ -45,12 +33,8 @@
 		height: 2px;
 		background-color: rgb(170,30,30);
 		display: block;
+		width: 100%;
 		bottom: -1px;
 	}
 
-	a {
-		text-decoration: none;
-		padding: 1em 0.5em;
-		display: block;
-	}
 </style>

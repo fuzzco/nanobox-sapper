@@ -1,0 +1,12 @@
+run.config:
+  engine: nodejs
+  extra_packages:
+    - nginx
+deploy.config:
+  extra_steps:
+    - npm install
+    - sapper build
+web.main:
+  start:
+    nginx: nginx -c /app/nginx.conf
+    node: sapper start
