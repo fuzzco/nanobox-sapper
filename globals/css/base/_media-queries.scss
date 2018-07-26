@@ -1,0 +1,25 @@
+@mixin not-small {
+  @media ( min-width: $small ) {
+    @content;
+  }
+}
+@mixin medium-break {
+  @media (min-width: $small) and (max-width: $large) {
+    @content;
+  }
+}
+@mixin large-break {
+  @media (min-width: $large) {
+    @content;
+  }
+}
+@mixin smaller-than($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+@mixin bigger-than($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}

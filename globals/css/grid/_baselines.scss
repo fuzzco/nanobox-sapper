@@ -1,0 +1,12 @@
+@mixin baseline-top ($n) {
+  margin-top: $n * $baseline;
+}
+@mixin baseline-bottom ($n) {
+  margin-bottom: $n * $baseline;
+}
+@mixin baseline-padding-top ($n) {
+  padding-top: $n * $baseline;
+}
+@mixin baseline-padding-bottom ($n) {
+  padding-bottom: $n * $baseline;
+}

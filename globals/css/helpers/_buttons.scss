@@ -1,0 +1,41 @@
+@mixin btn () {
+  border-radius: $border-radius;
+  text-decoration: none;
+  text-align: center;
+  padding: ($baseline*4) (3em);
+  @include font-size(1);
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-sizing: border-box;
+  white-space: nowrap;
+  transition: all $fast;
+  box-shadow: none;
+  text-shadow: none;
+  border: $border-px solid black;
+  background: $white;
+  position: relative;
+}
+
+@mixin btn-color ($color, $hover) {
+  background: $color;
+  &:hover {
+    background: $hover;
+  }
+}
+
+@mixin btn-shadow () {
+  transform: translate3d(-3*$border-px, -3*$border-px, 0);
+  content: "";
+  position: absolute;
+  display: block;
+  border: $border-px solid black;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  bottom: -2*$border-px;
+  right: -2*$border-px;
+  z-index: -1;
+  background-color: transparent;
+  transition: all $fast;
+}

@@ -1,0 +1,3 @@
+@mixin word-spacing($n) {
+  word-spacing: $n * 0.001em;
+}

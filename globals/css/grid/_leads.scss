@@ -1,0 +1,15 @@
+$half-leading: $leading/2;
+$quarter-leading: $leading/4;
+
+@mixin lead-top ($n) {
+  margin-top: $n * $leading;
+}
+@mixin lead-bottom ($n) {
+  margin-bottom: $n * $leading;
+}
+@mixin padding-top ($n) {
+  padding-top: $n * $leading;
+}
+@mixin padding-bottom ($n) {
+  padding-bottom: $n * $leading;
+}

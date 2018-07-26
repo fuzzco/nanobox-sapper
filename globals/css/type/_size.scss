@@ -1,0 +1,5 @@
+@mixin font-size($n) {
+  $size: nth($type-sizes, $n);
+  font-size:   ( nth($size, 1) / $base-size ) * 1rem;
+  line-height: ( nth($size, 2) / $base-size ) * 1rem;
+}

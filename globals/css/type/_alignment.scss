@@ -1,0 +1,12 @@
+@mixin text-inline() {
+  display: inline;
+}
+@mixin text-center() {
+  text-align: center;
+}
+@mixin text-left() {
+  text-align: left;
+}
+@mixin text-right() {
+  text-align: right;
+}

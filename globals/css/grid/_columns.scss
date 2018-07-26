@@ -1,0 +1,24 @@
+@mixin column () {
+  box-sizing: border-box;
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding: ($padding-y / 2) ($padding-x / 2);
+}
+
+@mixin column-is ($n) {
+  flex: none;
+  width: ($n / $col-count) * 99.9%;
+}
+
+@mixin is-offset ($n) {
+  margin-left: ($n / $col-count) * 100%
+}
+@mixin is-offset-right ($n) {
+  margin-right: ($n / $col-count) * 100%
+}
+
+@mixin flush {
+  padding: 0 !important;
+}
